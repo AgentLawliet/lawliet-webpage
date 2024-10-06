@@ -25,7 +25,7 @@
             margin: 0;
         }
         header p {
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #d1d1d1;
             margin-top: 10px;
         }
@@ -42,6 +42,22 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid #00c6ff;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: #00c6ff;
+            bottom: 0;
+            left: 0;
+            animation: glow 1.5s infinite;
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #00c6ff; }
+            50% { box-shadow: 0 0 20px #00c6ff; }
+            100% { box-shadow: 0 0 5px #00c6ff; }
         }
         .about, .portfolio, .contact {
             margin-bottom: 40px;
@@ -71,35 +87,30 @@
         a {
             color: #00c6ff;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         a:hover {
             color: #0072ff;
             text-decoration: underline;
         }
-        /* Typewriter effect */
-        #typewriter {
-            font-size: 1.2em;
-            color: #d1d1d1;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid #00c6ff;
-            width: 0;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        .glow-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00c6ff;
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
+            transition: box-shadow 0.3s ease;
         }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #00c6ff; }
+        .glow-button:hover {
+            box-shadow: 0 0 30px rgba(0, 198, 255, 1);
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Lawliet</h1>
-        <p id="typewriter"></p>
+        <p>Developer | Student | Tech Enthusiast</p>
     </header>
 
     <div class="container">
@@ -126,31 +137,12 @@
         <section class="contact">
             <h2 class="section-title">Contact</h2>
             <p>Feel free to reach out to me via email for collaboration or inquiries: <a href="mailto:lawliet@example.com">lawliet@example.com</a></p>
+            <p><a class="glow-button" href="mailto:lawliet@example.com">Contact Me</a></p>
         </section>
     </div>
 
     <footer>
         <p>© 2024 Lawliet. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        // JavaScript for the typewriter effect
-        const typewriterText = "Developer | Student | Tech Enthusiast";
-        let index = 0;
-        const typewriter = document.getElementById('typewriter');
-        const typingSpeed = 100; // speed in milliseconds
-        
-        function type() {
-            if (index < typewriterText.length) {
-                typewriter.textContent += typewriterText.charAt(index);
-                index++;
-                setTimeout(type, typingSpeed);
-            }
-        }
-
-        // Start typing when the page loads
-        window.onload = type;
-    </script>
 </body>
 </html>
-# lawliet-webpage
